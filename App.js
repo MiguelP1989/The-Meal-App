@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import * as Font from "expo-font";
 import Apploading from "expo-app-loading";
 import { enableScreens } from "react-native-screens";
-import { Text, View } from "react-native";
 
 // Global imports
 import MealsNavigator from "./navigation/MealsNavigation";

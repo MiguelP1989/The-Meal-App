@@ -1,6 +1,6 @@
 // Third-party imports
 import React from "react";
-import { Text, View, StyleSheet, FlatList } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 
 // Global imports
 import { CATEGORIES, MEALS } from "../data/dummy-data";

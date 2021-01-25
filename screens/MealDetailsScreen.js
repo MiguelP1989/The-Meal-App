@@ -1,9 +1,11 @@
 // Third-party imports
 import React from "react";
 import { Text, View, StyleSheet, Button, FlatList } from "react-native";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
 // Global imports
 import { MEALS } from "../data/dummy-data";
+import CustomHeaderButton from "../components/HeaderButton";
 
 // Local imports
 
@@ -51,6 +53,15 @@ MealDetailScreen.navigationOptions = (navigationData) => {
   );
   return {
     headerTitle: selectedMeal.title,
+    headerRight: () => (
+      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+        <Item
+          title="Favorite"
+          iconName="ios-star"
+          onPress={() => console.log("worked")}
+        />
+      </HeaderButtons>
+    ),
   };
 };
 
