@@ -1,18 +1,30 @@
 // Third-party imports
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Button, FlatList } from "react-native";
 
 // Global imports
+import { CATEGORIES } from "../data/dummy-data";
 
 // Local imports
 
 ////////////////////////////////////////////////////////////////////////////////
 
+const renderGridItem = (itemData) => {
+  return (
+    <View>
+      <Text>{itemData.item.title}</Text>
+    </View>
+  );
+};
+
 const CategoriesScreen = ({}) => {
   return (
-    <View style={styles.screen}>
-      <Text>CategoriesScreen</Text>
-    </View>
+    <FlatList
+      keyExtractor={(item) => item.id}
+      data={CATEGORIES}
+      renderItem={renderGridItem}
+      numColumns={2}
+    />
   );
 };
 

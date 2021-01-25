@@ -1,6 +1,6 @@
 // Third-party imports
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Button } from "react-native";
 
 // Global imports
 
@@ -8,10 +8,14 @@ import { Text, View, StyleSheet } from "react-native";
 
 ////////////////////////////////////////////////////////////////////////////////
 
-const MealDetailScreen = ({}) => {
+const MealDetailScreen = ({ navigation }) => {
   return (
     <View style={styles.screen}>
       <Text>MealDetailScreen</Text>
+      <Button
+        title="GO BACK TO CATEGORIES"
+        onPress={() => navigation.popToTop()}
+      />
     </View>
   );
 };

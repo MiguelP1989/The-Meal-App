@@ -1,6 +1,6 @@
 // Third-party imports
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Button } from "react-native";
 
 // Global imports
 
@@ -8,10 +8,17 @@ import { Text, View, StyleSheet } from "react-native";
 
 ////////////////////////////////////////////////////////////////////////////////
 
-const CategoryScreen = ({}) => {
+const CategoryScreen = ({ navigation }) => {
   return (
     <View style={styles.screen}>
       <Text>CategoryScreen</Text>
+      <Button
+        title="GO TO DETAILS"
+        onPress={() => {
+          navigation.navigate({ routeName: "MealDetails" });
+        }}
+      />
+      <Button title="GO BACK" onPress={() => navigation.goBack()} />
     </View>
   );
 };
