@@ -5,6 +5,7 @@ import Apploading from "expo-app-loading";
 import { Text, View } from "react-native";
 
 // Global imports
+import MealsNavigator from "./navigation/MealsNavigation";
 
 // Local imports
 
@@ -30,11 +31,7 @@ const App = () => {
     );
   }
 
-  return (
-    <View>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+  return <MealsNavigator />;
 };
 
 export default App;
