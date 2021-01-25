@@ -52,9 +52,9 @@ const CategoriesScreen = ({ navigation }) => {
 CategoriesScreen.navigationOptions = {
   headerTitle: "Meal Categories",
   headerStyle: {
-    backgroundColor: Platform.OS === "android" ? Colors.primary : "",
+    backgroundColor: Platform.OS === "android" ? Colors.primaryColor : "",
   },
-  headerTintColor: Platform.OS === "android" ? "white" : Colors.primary,
+  headerTintColor: Platform.OS === "android" ? "white" : Colors.primaryColor,
 };
 
 export default CategoriesScreen;
