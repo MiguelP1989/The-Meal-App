@@ -1,23 +1,57 @@
 // Third-party imports
 import React from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Text, View, StyleSheet, Button, FlatList } from "react-native";
 
 // Global imports
+import { MEALS } from "../data/dummy-data";
 
 // Local imports
 
 ////////////////////////////////////////////////////////////////////////////////
 
-const MealDetailScreen = ({ navigation }) => {
+const RenderMealDetails = (itemData) => {
   return (
-    <View style={styles.screen}>
-      <Text>MealDetailScreen</Text>
-      <Button
-        title="GO BACK TO CATEGORIES"
-        onPress={() => navigation.popToTop()}
-      />
+    <View>
+      <Text>{itemData.item.ingredients}</Text>
     </View>
   );
+};
+
+const MealDetailScreen = ({ navigation }) => {
+  // Variables
+  const mealId = navigation.getParam("mealId");
+
+  // Hooks
+  const displayMealDetails = MEALS.filter((meal) => meal.id !== mealId);
+
+  // Props
+  const flatListProps = {
+    data: displayMealDetails,
+    keyExtractor: (item) => item.id,
+    renderItem: RenderMealDetails,
+    style: { width: "100%" },
+  };
+
+  const buttonProps = {
+    title: "GO BACK TO CATEGORIES",
+    onPress: () => navigation.popToTop(),
+  };
+
+  return (
+    <View style={styles.screen}>
+      <FlatList {...flatListProps} />
+      <Button {...buttonProps} />
+    </View>
+  );
+};
+
+MealDetailScreen.navigationOptions = (navigationData) => {
+  const selectedMeal = MEALS.find(
+    (meal) => meal.id === navigationData.navigation.getParam("mealId")
+  );
+  return {
+    headerTitle: selectedMeal.title,
+  };
 };
 
 export default MealDetailScreen;

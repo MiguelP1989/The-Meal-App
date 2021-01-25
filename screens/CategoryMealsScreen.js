@@ -10,7 +10,7 @@ import MealItem from "../components/MealItems";
 
 ////////////////////////////////////////////////////////////////////////////////
 
-const RenderMealScreen = (itemData) => {
+const RenderMealScreen = ({ navigation, itemData }) => {
   // Props
   const mealIteamProps = {
     title: itemData.item.title,
@@ -18,8 +18,13 @@ const RenderMealScreen = (itemData) => {
     complexity: itemData.item.complexity,
     affordability: itemData.item.affordability,
     imageUrl: itemData.item.imageUrl,
-    onSelectMeal: () => {},
+    onSelectMeal: () =>
+      navigation.navigate({
+        routeName: "MealDetails",
+        params: { mealId: itemData.item.id },
+      }),
   };
+
   return <MealItem {...mealIteamProps} />;
 };
 
@@ -28,19 +33,23 @@ const CategoryMealScreen = ({ navigation }) => {
   const catId = navigation.getParam("categoryId");
 
   // Hooks
-  const selectedCategory = CATEGORIES.find((cat) => cat.id === catId);
   const displayMeals = MEALS.filter(
     (meal) => meal.categoryIds.indexOf(catId) >= 0
   );
 
+  // Props
+  const flatListProps = {
+    data: displayMeals,
+    keyExtractor: (item) => item.id,
+    renderItem: (item) => (
+      <RenderMealScreen navigation={navigation} itemData={item} />
+    ),
+    style: { width: "100%" },
+  };
+
   return (
     <View style={styles.screen}>
-      <FlatList
-        data={displayMeals}
-        keyExtractor={(item) => item.id}
-        renderItem={RenderMealScreen}
-        style={{ width: "100%" }}
-      />
+      <FlatList {...flatListProps} />
     </View>
   );
 };
