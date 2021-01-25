@@ -53,6 +53,8 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 15,
     height: 150,
+    borderRadius: 10,
+    elevation: 10,
   },
   container: {
     flex: 1,
