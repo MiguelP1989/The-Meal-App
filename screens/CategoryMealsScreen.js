@@ -1,5 +1,12 @@
+// Third-party imports
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
+
+// Global imports
+
+// Local imports
+
+////////////////////////////////////////////////////////////////////////////////
 
 const CategoryScreen = ({}) => {
   return (
