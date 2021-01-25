@@ -5365,10 +5365,10 @@ react-native-safe-area-view@^0.14.9:
   dependencies:
     hoist-non-react-statics "^2.3.1"
 
-react-native-screens@~2.15.2:
-  version "2.15.2"
-  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.15.2.tgz"
-  integrity sha512-CagNf2APXkVoRlF3Mugr264FbKbrBg9eXUkqhIPVeZB8EsdS8XPrnt99yj/pzmT+yJMBY0dGrjXT8+68WYh6YQ==
+react-native-screens@^2.17.0:
+  version "2.17.0"
+  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.17.0.tgz#78acbcf632eefa6da341e2581eaf2de0d6db9469"
+  integrity sha512-JlCAU1tQDAhrXFI86NWvaO90ovG2gHvTfCFkW0SHoe4kZfSvZIKfGUXk8E3j6R8+1QJYLDJlZTwVsM/j70fHWQ==
 
 react-native-tab-view@^2.15.2:
   version "2.15.2"
