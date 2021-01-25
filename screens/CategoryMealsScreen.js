@@ -1,38 +1,41 @@
 // Third-party imports
 import React from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Text, View, StyleSheet, Button, FlatList } from "react-native";
 
 // Global imports
-import { CATEGORIES } from "../data/dummy-data";
+import { CATEGORIES, MEALS } from "../data/dummy-data";
 import Colors from "../constants/Colors";
 
 // Local imports
 
 ////////////////////////////////////////////////////////////////////////////////
 
+const RenderMealScreen = (itemData) => {
+  return (
+    <View>
+      <Text>{itemData.item.title}</Text>
+    </View>
+  );
+};
+
 const CategoryMealScreen = ({ navigation }) => {
   // Variables
   const catId = navigation.getParam("categoryId");
+
+  // Hooks
   const selectedCategory = CATEGORIES.find((cat) => cat.id === catId);
-
-  // Props
-  const buttonDetailsProps = {
-    title: "GO TO DETAILS",
-    onPress: () => {
-      navigation.navigate({ routeName: "MealDetails" });
-    },
-  };
-
-  const buttonGoBackProps = {
-    title: "GO BACK",
-    onPress: () => navigation.goBack(),
-  };
+  const displayMeals = MEALS.filter(
+    (meal) => meal.categoryIds.indexOf(catId) >= 0
+  );
 
   return (
     <View style={styles.screen}>
       <Text>{selectedCategory.title}</Text>
-      <Button {...buttonDetailsProps} />
-      <Button {...buttonGoBackProps} />
+      <FlatList
+        data={displayMeals}
+        keyExtractor={(item) => item.id}
+        renderItem={RenderMealScreen}
+      />
     </View>
   );
 };
