@@ -13,7 +13,7 @@ import CustomHeaderButton from "../components/HeaderButton";
 const FiltersScreen = ({}) => {
   return (
     <View style={styles.screen}>
-      <Text>FiltersScreen</Text>
+      <Text style={styles.title}>Available Filters / Restrictions</Text>
     </View>
   );
 };
