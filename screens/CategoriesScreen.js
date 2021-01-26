@@ -1,10 +1,12 @@
 // Third-party imports
 import React from "react";
 import { StyleSheet, FlatList } from "react-native";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
 // Global imports
 import { CATEGORIES } from "../data/dummy-data";
 import CategoryGridTile from "../components/CategoryGridTile";
+import CustomHeaderButton from "../components/HeaderButton";
 
 // Local imports
 
@@ -36,8 +38,23 @@ const CategoriesScreen = ({ navigation }) => {
   return <FlatList {...flatListProps} />;
 };
 
-CategoriesScreen.navigationOptions = {
-  headerTitle: "Meal Categories",
+CategoriesScreen.navigationOptions = (navData) => {
+  return {
+    headerTitle: "Meal Categories",
+    headerLeft: () => {
+      return (
+        <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+          <Item
+            title="Menu"
+            iconName="ios-menu"
+            onPress={() => {
+              navData.navigation.toggleDrawer();
+            }}
+          ></Item>
+        </HeaderButtons>
+      );
+    },
+  };
 };
 
 export default CategoriesScreen;

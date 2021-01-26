@@ -1,11 +1,12 @@
 // Third-party imports
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
 // Global imports
 import Colors from "../constants/Colors";
 import MealList from "../components/MealList";
 import { MEALS } from "../data/dummy-data";
+import CustomHeaderButton from "../components/HeaderButton";
 
 // Local imports
 
@@ -18,9 +19,24 @@ const FavoriteScreen = ({ navigation }) => {
 
 export default FavoriteScreen;
 
-FavoriteScreen.navigationOptions = {
-  headerTitle: "Your Favorites",
-  headerStyle: {
-    backgroundColor: Platform.OS === "android" ? Colors.secondaryColor : "",
-  },
+FavoriteScreen.navigationOptions = (navData) => {
+  return {
+    headerTitle: "Your Favorites",
+    headerStyle: {
+      backgroundColor: Platform.OS === "android" ? Colors.secondaryColor : "",
+    },
+    headerLeft: () => {
+      return (
+        <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+          <Item
+            title="Menu"
+            iconName="ios-menu"
+            onPress={() => {
+              navData.navigation.toggleDrawer();
+            }}
+          ></Item>
+        </HeaderButtons>
+      );
+    },
+  };
 };
