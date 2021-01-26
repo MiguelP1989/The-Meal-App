@@ -10,15 +10,18 @@ import Colors from "../constants/Colors";
 ////////////////////////////////////////////////////////////////////////////////
 
 const FilterSwitch = ({ state, label, onChange }) => {
+  // Props
+  const switchProps = {
+    trackColor: { true: Colors.primaryColor, false: "grey" },
+    thumbColor: Colors.primaryColor,
+    value: state,
+    onValueChange: onChange,
+  };
+
   return (
     <View style={styles.filterContainer}>
       <Text style={styles.title}>{label}</Text>
-      <Switch
-        trackColor={{ true: Colors.primaryColor, false: "grey" }}
-        thumbColor={Colors.primaryColor}
-        value={state}
-        onValueChange={onChange}
-      />
+      <Switch {...switchProps} />
     </View>
   );
 };
