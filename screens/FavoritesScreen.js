@@ -1,11 +1,11 @@
 // Third-party imports
 import React from "react";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import { useSelector } from "react-redux";
 
 // Global imports
 import Colors from "../constants/Colors";
 import MealList from "../components/MealList";
-import { MEALS } from "../data/dummy-data";
 import CustomHeaderButton from "../components/HeaderButton";
 
 // Local imports
@@ -13,7 +13,8 @@ import CustomHeaderButton from "../components/HeaderButton";
 ////////////////////////////////////////////////////////////////////////////////
 
 const FavoriteScreen = ({ navigation }) => {
-  const favMeals = MEALS.filter((meal) => meal.id === "m1" || meal.id === "m2");
+  // Hooks
+  const favMeals = useSelector((state) => state.meals.favoriteMeals);
   return <MealList listData={favMeals} navigation={navigation} />;
 };
 

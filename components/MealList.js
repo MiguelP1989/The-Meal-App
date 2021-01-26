@@ -20,7 +20,7 @@ const RenderMealScreen = ({ navigation, itemData }) => {
     onSelectMeal: () =>
       navigation.navigate({
         routeName: "MealDetails",
-        params: { mealId: itemData.item.id },
+        params: { mealId: itemData.item.id, mealTitle: itemData.item.title },
       }),
   };
 

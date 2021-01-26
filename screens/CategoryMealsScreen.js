@@ -1,8 +1,9 @@
 // Third-party imports
 import React from "react";
+import { useSelector } from "react-redux";
 
 // Global imports
-import { CATEGORIES, MEALS } from "../data/dummy-data";
+import { CATEGORIES } from "../data/dummy-data";
 import MealList from "../components/MealList";
 
 // Local imports
@@ -14,7 +15,9 @@ const CategoryMealScreen = ({ navigation }) => {
   const catId = navigation.getParam("categoryId");
 
   // Hooks
-  const displayMeals = MEALS.filter(
+  const availableMeals = useSelector((state) => state.meals.filteredMeals);
+
+  const displayMeals = availableMeals.filter(
     (meal) => meal.categoryIds.indexOf(catId) >= 0
   );
 
