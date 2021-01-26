@@ -1,11 +1,13 @@
 // Third-party imports
 import React, { useState, useEffect, useCallback } from "react";
+import { useDispatch } from "react-redux";
 import { Text, View, StyleSheet } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
 // Global imports
 import CustomHeaderButton from "../components/HeaderButton";
 import FilterSwitch from "../components/FilterSwitch";
+import { setFilters } from "../store/action/meals";
 
 // Local imports
 
@@ -17,15 +19,16 @@ const FiltersScreen = ({ navigation }) => {
   const [isLactoseFree, setIsLactoseFree] = useState(false);
   const [isVegan, setIsVegan] = useState(false);
   const [isVegetarian, setIsVegetarian] = useState(false);
+  const dispatch = useDispatch();
 
   const saveFilters = useCallback(() => {
     const appliedFilter = {
-      glutenfree: isGlutenFree,
+      glutenFree: isGlutenFree,
       lactoseFree: isLactoseFree,
       vegan: isVegan,
       vegetarian: isVegetarian,
     };
-    console.log(appliedFilter);
+    dispatch(setFilters(appliedFilter));
   }, [isGlutenFree, isLactoseFree, isVegan, isVegetarian]);
 
   useEffect(() => {
