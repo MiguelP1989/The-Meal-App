@@ -15,7 +15,7 @@ import { setFilters } from "../store/action/meals";
 
 /**
  * @function FiltersScreen
- * @description Screen to render all the Filters.
+ * @description Screen to render all the Filtered meals.
  * @param {object} navigation - used to setParams (save) and point to the saveFilter hook to be able to comunicate with the header button (save).
  */
 const FiltersScreen = ({ navigation }) => {
