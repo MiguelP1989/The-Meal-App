@@ -46,6 +46,7 @@ const MealItems = ({
 
 export default MealItems;
 
+// Styles
 const styles = StyleSheet.create({
   mealItem: {
     height: 250,

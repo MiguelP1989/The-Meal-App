@@ -13,6 +13,11 @@ import { setFilters } from "../store/action/meals";
 
 ////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * @function FiltersScreen
+ * @description Screen to render all the Filters.
+ * @param {object} navigation - used to setParams (save) and point to the saveFilter hook to be able to comunicate with the header button (save).
+ */
 const FiltersScreen = ({ navigation }) => {
   //Hooks
   const [isGlutenFree, setIsGlutenFree] = useState(false);
@@ -66,6 +71,7 @@ const FiltersScreen = ({ navigation }) => {
 
 export default FiltersScreen;
 
+// Navigation Settings
 FiltersScreen.navigationOptions = (navData) => {
   return {
     headerTitle: "Filter Meals",
@@ -96,6 +102,7 @@ FiltersScreen.navigationOptions = (navData) => {
   };
 };
 
+// Styles
 const styles = StyleSheet.create({
   screen: {
     flex: 1,

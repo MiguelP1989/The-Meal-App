@@ -10,6 +10,11 @@ import Colors from "../constants/Colors";
 // Local imports
 
 ////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * @function CustomHeaderButton
+ * @description It renders the HeaderButtom component.
+ */
 const CustomHeaderButton = (props) => {
   return (
     <HeaderButton

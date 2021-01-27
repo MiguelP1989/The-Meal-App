@@ -29,6 +29,13 @@ const TouchableComp = ({ children, style, onPress }) => {
   );
 };
 
+/**
+ * @function CategoryGridTile
+ * @description Component to render the grid of categories.
+ * @param {String} title - it renders the title of each category.
+ * @param {String} color - it renders the color of each category.
+ * @param {Function} onSelect - it renders the screen with the meals of the category selected.
+ */
 const CategoryGridTile = ({ title, color, onSelect }) => {
   // Props
   const touchableOpacityProps = {
@@ -48,6 +55,7 @@ const CategoryGridTile = ({ title, color, onSelect }) => {
 
 export default CategoryGridTile;
 
+// Styles
 const styles = StyleSheet.create({
   gridItem: {
     flex: 1,

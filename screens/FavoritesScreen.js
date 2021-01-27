@@ -13,6 +13,11 @@ import CustomHeaderButton from "../components/HeaderButton";
 
 ////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * @function FavoriteScreen
+ * @description Screen to render all the favorite meals.
+ * @param {object} navigation - used to navigate to the MealDetailScreen along with params ( mealId, mealTitle, isFav) on the MealList component.
+ */
 const FavoriteScreen = ({ navigation }) => {
   // Hooks
   const favMeals = useSelector((state) => state.meals.favoriteMeals);
@@ -28,6 +33,7 @@ const FavoriteScreen = ({ navigation }) => {
 
 export default FavoriteScreen;
 
+// Navigation Settings
 FavoriteScreen.navigationOptions = (navData) => {
   return {
     headerTitle: "Your Favorites",
@@ -50,6 +56,7 @@ FavoriteScreen.navigationOptions = (navData) => {
   };
 };
 
+// Styles
 const styles = StyleSheet.create({
   text: {
     flex: 1,

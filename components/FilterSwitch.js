@@ -9,6 +9,13 @@ import Colors from "../constants/Colors";
 
 ////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * @function FilterSwitch
+ * @description Component to render each filter switch
+ * @param {Bollean} state - Determines if the user selected the filter on or not.
+ * @param {String} label - It renders the name for each switch.
+ * @param {Function} onChange - verifys if the user change the state of eatch switch.
+ */
 const FilterSwitch = ({ state, label, onChange }) => {
   // Props
   const switchProps = {
@@ -28,6 +35,7 @@ const FilterSwitch = ({ state, label, onChange }) => {
 
 export default FilterSwitch;
 
+// Styles
 const styles = StyleSheet.create({
   filterContainer: {
     flexDirection: "row",

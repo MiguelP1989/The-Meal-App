@@ -12,6 +12,11 @@ import { toggleFavorite } from "../store/action/meals";
 
 ////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * @function MealDetailScreen
+ * @description Screen to render the details of each meal.
+ * @param {object} navigation - used to have access to the mealId.
+ */
 const MealDetailScreen = ({ navigation }) => {
   // Variables
   const mealId = navigation.getParam("mealId");
@@ -60,6 +65,7 @@ const MealDetailScreen = ({ navigation }) => {
   );
 };
 
+// Navigation Settings
 MealDetailScreen.navigationOptions = (navigationData) => {
   const mealTitle = navigationData.navigation.getParam("mealTitle");
   const ToggleFav = navigationData.navigation.getParam("toggleFav");
@@ -81,6 +87,7 @@ MealDetailScreen.navigationOptions = (navigationData) => {
 
 export default MealDetailScreen;
 
+// Styles
 const styles = StyleSheet.create({
   image: {
     width: "100%",
