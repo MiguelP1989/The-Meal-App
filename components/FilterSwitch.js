@@ -14,7 +14,7 @@ import Colors from "../constants/Colors";
  * @description Component to render each filter switch
  * @param {Bollean} state - Determines if the user selected the filter on or not.
  * @param {String} label - It renders the name for each switch.
- * @param {Function} onChange - verifys if the user change the state of eatch switch.
+ * @param {Function} onChange - verifies if the user change the state of each switch.
  */
 const FilterSwitch = ({ state, label, onChange }) => {
   // Props
